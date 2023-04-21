@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Ação{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+  <!-- Formulario de edição  -->
+  <form method="POST" class="post-form" action="/atualizar/{{acao.id}}">  
+    {% csrf_token %}  
+    <div class="container py-5">  
+      <!-- titulo da pagina -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4"><h3>Detalhes da Atualização</h3></div>  
+      </div> 
+
+      <!-- <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Id:</label>  
+        <div class="col-sm-4"><input type="number" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ acao.id }}"/></div>  
+      </div>   -->
+
+      <!-- codigo da acao -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Código Ação:</label>  
+        <div class="col-sm-4">  
+          <input type="text" class="form-control" name="codigo_acao" id="id_codigo_acao" required maxlength="10" value="{{ acao.codigo_acao }}" />  
+        </div>  
+      </div>
+        <!-- descrição da Ação  -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Descrição:</label>  
+        <div class="col-sm-4">  
+        <input type="text" class="form-control" name="descricao" id="id_descricao" required maxlength="200" value="{{ acao.descricao }}" />  
+        </div>  
+      </div> 
+      <!--Data da Açao  -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Data:</label>  
+        <div class="col-sm-4">  
+          <input type="date" class="form-control" name="data" id="id_data" required value="{{ acao.data|date:'%d-%m-%Y' }}" />  
+        </div>  
+      </div>
+      <!-- valor de abertura -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Open:</label>  
+        <div class="col-sm-4">  
+          <input type="text" class="form-control" name="open" id="id_open" required maxlength="15" value="{{ acao.open }}" />  
+        </div>  
+      </div> 
+      <!-- Valor de fechamento -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Close:</label>  
+        <div class="col-sm-4">  
+          <input type="text" class="form-control" name="close" id="id_close" required maxlength="15" value="{{ acao.close }}" />  
+        </div>  
+      </div> 
+      <!-- maior alta do dia -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">High:</label>  
+        <div class="col-sm-4">  
+          <input type="text" class="form-control" name="high" id="id_high" required maxlength="15" value="{{ acao.high }}" />  
+        </div>  
+      </div>
+      <!-- Maior baixa do dia -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Low:</label>  
+        <div class="col-sm-4">  
+          <input type="text" class="form-control" name="low" id="id_low" required maxlength="15" value="{{ acao.low }}" />  
+        </div>  
+      </div>
+      <!-- Quantidade de ações vendidas -->
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Volume:</label>  
+        <div class="col-sm-4">  
+          <input type="text" class="form-control" name="volume" id="id_volume" required maxlength="15" value="{{ acao.volume }}" />  
+        </div>  
+      </div> 
+      <!-- Botao salvar edição -->
+      <div class="form-group row">  
+        <div class="col-sm-4  mt-5">  
+          <button type="submit" class="btn btn-success btn-lg px-4">Atualizar</button>  
+        </div>  
+      </div> 
+
+    </div>  
+  </form>
+</div>  
+{% endblock content %} 

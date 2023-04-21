@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Adicionar nova Ação{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+ 
+  <!-- formulário -->
+  <form method="POST" class="post-form" action="/adicionar">  
+    {% csrf_token %}  
+    <div class="container py-5">  
+ 
+      <div class="form-group row mb-2">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4"><h3>Adicionar</h3></div>  
+      </div>  
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Código Ação:</label>  
+        <div class="col-sm-4">  
+          {{ form.codigo_acao }}  
+        </div>  
+      </div> 
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Descrição:</label>  
+        <div class="col-sm-4">  
+          {{ form.descricao }}  
+        </div>  
+      </div>  
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Data:</label>  
+        <div class="col-sm-4">  
+          {{ form.data }}  
+        </div>  
+      </div>  
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Open:</label>  
+        <div class="col-sm-4">  
+          {{ form.open}}  
+        </div>  
+      </div> 
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Close:</label>  
+        <div class="col-sm-4">  
+          {{ form.close }}  
+        </div>  
+      </div> 
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">High:</label>  
+        <div class="col-sm-4">  
+          {{ form.high }}  
+        </div>  
+      </div> 
+
+      <div class="form-group row mb-2">  
+        <label class="col-sm-2 col-form-label">Low:</label>  
+        <div class="col-sm-4">  
+          {{ form.low }}  
+        </div>  
+      </div> 
+
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Volume:</label>  
+        <div class="col-sm-4">  
+          {{ form.volume }}  
+        </div>  
+      </div> 
+
+      <div class="form-group row">   
+        <div class="col-sm-4 mt-5">  
+          <button type="submit" class="btn btn-primary px-5">Enviar</button>  
+        </div>  
+      </div>
+
+    </div>  
+  </form>  
+</div> 
+{% endblock content %} 
