@@ -9,9 +9,9 @@
     {% csrf_token %}  
     <div class="container py-5">  
       <!-- titulo da pagina -->
-      <div class="form-group row mb-2">  
-        <label class="col-sm-1 col-form-label"></label>  
+      <div class="form-group row mb-2 d-flex flex-column">   
         <div class="col-sm-4"><h3>Detalhes da Atualização</h3></div>  
+        <div class="col-sm-4"><h6 class="text-danger">Atenção: Use ponto e não virgulas para números e '/' para separar data.</h6></div>  
       </div> 
 
       <!-- codigo da acao -->
@@ -39,35 +39,35 @@
       <div class="form-group row mb-2">  
         <label class="col-sm-2 col-form-label">Open:</label>  
         <div class="col-sm-4">  
-          <input type="text" class="form-control" name="open" id="id_open" required maxlength="15" value="{{ acao.open }}" />  
+          <input type="text" class="form-control" name="open" id="id_open" required maxlength="15" value="{{ acao.open|floatformat:2 }}" placeholder="ex: 000.00" />  
         </div>  
       </div> 
       <!-- Valor de fechamento -->
       <div class="form-group row mb-2">  
         <label class="col-sm-2 col-form-label">Close:</label>  
         <div class="col-sm-4">  
-          <input type="text" class="form-control" name="close" id="id_close" required maxlength="15" value="{{ acao.close }}" />  
+          <input type="text" class="form-control" name="close" id="id_close" required maxlength="15" value="{{ acao.close|floatformat:2 }}" placeholder="ex: 000.00" />  
         </div>  
       </div> 
       <!-- maior alta do dia -->
       <div class="form-group row mb-2">  
         <label class="col-sm-2 col-form-label">High:</label>  
         <div class="col-sm-4">  
-          <input type="text" class="form-control" name="high" id="id_high" required maxlength="15" value="{{ acao.high }}" />  
+          <input type="text" class="form-control" name="high" id="id_high" required maxlength="15" value="{{ acao.high|floatformat:2 }}" placeholder="ex: 000.00" />  
         </div>  
       </div>
       <!-- Maior baixa do dia -->
       <div class="form-group row mb-2">  
         <label class="col-sm-2 col-form-label">Low:</label>  
         <div class="col-sm-4">  
-          <input type="text" class="form-control" name="low" id="id_low" required maxlength="15" value="{{ acao.low }}" />  
+          <input type="text" class="form-control" name="low" id="id_low" required maxlength="15" value="{{ acao.low|floatformat:2 }}" placeholder="ex: 000.00" />  
         </div>  
       </div>
       <!-- Quantidade de ações vendidas -->
       <div class="form-group row mb-2">  
         <label class="col-sm-2 col-form-label">Volume:</label>  
         <div class="col-sm-4">  
-          <input type="text" class="form-control" name="volume" id="id_volume" required maxlength="15" value="{{ acao.volume }}" />  
+          <input type="text" class="form-control" name="volume" id="id_volume" required maxlength="15" value="{{ acao.volume }}" placeholder="ex: 111" />  
         </div>  
       </div> 
       <!-- Botao salvar edição -->

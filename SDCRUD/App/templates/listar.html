@@ -30,7 +30,7 @@
                     <td>{{ acao.id }}</td>  
                     <td>{{ acao.codigo_acao }}</td>  
                     <td>{{ acao.descricao }}</td>  
-                    <td>{{ acao.data }}</td>  
+                    <td>{{ acao.data | date:'d-m-Y' }}</td>  
                     <td>{{ acao.open}}</td>
                     <td>{{ acao.close}}</td>
                     <td>{{ acao.high}}</td>

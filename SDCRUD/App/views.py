@@ -27,10 +27,15 @@ def atualizar(request, id):
     acao = Acao.objects.get(id=id)
 
     form = AcaoFormulario(request.POST, instance=acao)  
-    if form.is_valid():  
-        form.save()  
-        return redirect("/")  
-    return render(request, 'editar.html', {'acao':acao}) 
+    if form.is_valid():
+        try:
+            form.save()  
+            return redirect('/')
+        except ValueError:
+            print(ValueError)
+            
+    else: 
+        return render(request, 'editar.html', {'acao':acao}) 
  
 def remover(request, id):  
     acao = Acao.objects.get(id=id)  
