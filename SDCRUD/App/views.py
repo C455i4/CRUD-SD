@@ -21,7 +21,6 @@ def listarAcoes(request):
 
 def editar(request, id):  
     acao = Acao.objects.get(id=id) 
-    print(acao.data) 
     return render(request,'editar.html', {'acao':acao})  
 
 def atualizar(request, id):  
