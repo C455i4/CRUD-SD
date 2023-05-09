@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Acao
+from App.models import Acao
 
 class AcaoSerializer(serializers.ModelSerializer):
     class Meta:
