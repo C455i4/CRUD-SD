@@ -6,6 +6,7 @@ class AcaoFormulario(forms.ModelForm):
         model = Acao  
         fields = ['codigo_acao', 'descricao', 'data', 'open', 'close', 'high', 'low', 'volume']
         widgets = { 
+            
             'codigo_acao': forms.TextInput(attrs={ 'class': 'form-control' }), 
             'descricao': forms.TextInput(attrs={ 'class': 'form-control' }),
             'data': forms.DateInput(attrs={ 'type': 'Date','class': 'form-control'}, 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Registro {% endblock %}
+
+{% block content %}
+    <div class="col-md-5 mx-auto d-flex flex-column align-content-center justify-content-center mt-5"">
+        <div class="card auth-card py-4">
+            <h4 class="card-title text-center"> Faça seu Cadastro</h4>
+            <div class="card-body">
+
+                <form method="post" class="">
+                    {% csrf_token %}
+                    <input type="hidden" name = "next" value="{{next}}">
+                    <div>
+                        {% for field in form %}
+                        <div class="">
+                            <div class="mt-2 d-flex flex-column">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% if field.value or form.submitted %}
+                                    {% if field.errors %}                 
+                                        {% for error in field.errors %}
+                                            <p style="color:red;font-size:.85rem;margin-top:5px;margin-bottom:0px;">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 btn-block mt-4"> Cadastrar</button>
+                </form>
+                <p class="mt-2">Já tem uma conta? <a class="nav-link d-inline-block text-success" href="/accounts/login">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

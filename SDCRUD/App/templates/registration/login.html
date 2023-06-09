@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<div class="col-md-4 offset-md-4 d-flex flex-column align-content-center justify-content-center mt-5">
+    <div class="card auth-card py-4">
+        <h4 class="card-title text-center">Login</h4>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name = "next" value="{{next}}">
+                <div class="d-flex flex-column">
+                    {{ form }}
+                </div>
+                <button type="submit" class="btn btn-success w-100 btn-block mt-4"> Entrar</button>
+            </form>
+            <p class="mt-2 fs-6">Não tem uma conta? <a class="nav-link d-inline-block text-success" href="/accounts/register">Cadastre-se</a></p>
+        </div>
+    </div>
+</div>    
+
+{% endblock %}

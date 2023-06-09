@@ -3,7 +3,10 @@ from django.urls import path, include
 from App import views 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  
+    path('admin/', admin.site.urls), 
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+
     path('', views.listarAcoes),  
     path('adicionar',views.adicionar),  
     path('editar/<int:id>', views.editar),  
