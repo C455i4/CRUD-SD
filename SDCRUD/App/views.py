@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model,update_session_auth_hash
 from django.shortcuts import render, redirect   
@@ -18,7 +19,7 @@ def reset_password(request):
         form = PasswordChangeForm(request.user)
     return render(request, 'registration/reset_password.html', {'form': form})
 
-@login_required()
+@permission_required('App.can_crud_data')
 def adicionar(request):  
     if request.method == "POST":  
         form = AcaoFormulario(request.POST)  
@@ -36,15 +37,15 @@ def adicionar(request):
 
 @login_required()
 def listarAcoes(request):  
-    lista_acoes = Acao.objects.all().filter(user=request.user)
+    lista_acoes = Acao.objects.all()
     return render(request,"listar.html",{'lista_acoes':lista_acoes})  
 
-@login_required()
+@permission_required('App.can_crud_data')
 def editar(request, id):  
     acao = Acao.objects.get(id=id) 
     return render(request,'editar.html', {'acao':acao})  
 
-@login_required()
+@permission_required('App.can_crud_data')
 def atualizar(request, id):  
     acao = Acao.objects.get(id=id)
 
@@ -60,7 +61,7 @@ def atualizar(request, id):
     else: 
         return render(request, 'editar.html', {'acao':acao}) 
  
-@login_required()
+@permission_required('App.can_crud_data')
 def remover(request, id):  
     acao = Acao.objects.get(id=id)  
     acao.delete()  
